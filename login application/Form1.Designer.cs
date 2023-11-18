@@ -100,18 +100,20 @@
             this.pwTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.pwTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.pwTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(94)))), ((int)(((byte)(194)))));
-            this.pwTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.pwTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwTextBox.ForeColor = System.Drawing.Color.Black;
             this.pwTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(94)))), ((int)(((byte)(194)))));
             this.pwTextBox.IconLeft = global::login_application.Properties.Resources.lock_26px;
             this.pwTextBox.Location = new System.Drawing.Point(62, 290);
             this.pwTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pwTextBox.Name = "pwTextBox";
-            this.pwTextBox.PasswordChar = '\0';
+            this.pwTextBox.PasswordChar = '●';
             this.pwTextBox.PlaceholderText = "Password";
             this.pwTextBox.SelectedText = "";
             this.pwTextBox.Size = new System.Drawing.Size(344, 48);
             this.pwTextBox.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.pwTextBox.TabIndex = 4;
+            this.pwTextBox.UseSystemPasswordChar = true;
             this.pwTextBox.Click += new System.EventHandler(this.pwTextBox_Click);
             this.pwTextBox.Leave += new System.EventHandler(this.pwTextBox_Leave);
             // 
@@ -126,7 +128,8 @@
             this.userTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.userTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.userTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(94)))), ((int)(((byte)(194)))));
-            this.userTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.userTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userTextBox.ForeColor = System.Drawing.Color.Black;
             this.userTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(94)))), ((int)(((byte)(194)))));
             this.userTextBox.IconLeft = global::login_application.Properties.Resources.gender_neutral_user_32px;
             this.userTextBox.Location = new System.Drawing.Point(62, 223);

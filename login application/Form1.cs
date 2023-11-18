@@ -39,19 +39,26 @@ namespace login_application
             pwTextBox.IconLeft = Properties.Resources.lock_26px;
         }
 
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Savinda\Documents\bookShopDb.mdf;Integrated Security=True;Connect Timeout=30");
+        public SqlConnection sqlConnection() {
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Savinda\Documents\bookShopDb.mdf;Integrated Security=True;Connect Timeout=30");
+            return con;
+        }
+
+        public DataTable dataTable()
+        {
+            sqlConnection().Open();
+            string query = " SELECT count (*) FROM userTbl WHERE  Uname = '" + userTextBox.Text + "' and Upass = '" + pwTextBox.Text + "' ";
+            SqlDataAdapter sda = new SqlDataAdapter(query, sqlConnection());
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            return dt;
+        }
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            con.Open();
-            string query = " SELECT count (*) FROM userTbl WHERE  Uname = '" + userTextBox.Text + "' and Upass = '" + pwTextBox.Text + "' ";
-            SqlDataAdapter sda = new SqlDataAdapter(query, con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-
             string userName = userTextBox.Text;
 
-            if (dt.Rows[0][0].ToString() == "1")
+            if (dataTable().Rows[0][0].ToString() == "1")
             {
                 users obj = new users();
                 this.Hide();
@@ -61,8 +68,7 @@ namespace login_application
             {
                 MessageBox.Show("Incorrect user name or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            con.Close();
+            sqlConnection().Close();
         }
     }
 }

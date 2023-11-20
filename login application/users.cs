@@ -76,11 +76,16 @@ namespace login_application
             {
                 try
                 {
-                    sqlconnection().Open();
+                    string query = "UPDATE userTbl SET Uname = @Uname, Uadd = @Uadd, Upass = @Upass WHERE Uid = @Uid";
+                    using (SqlCommand cmd = new SqlCommand(query, sqlconnection()))
+                    {
+                        cmd.Parameters.AddWithValue("@Uname", NameTextBox.Text);
+                        cmd.Parameters.AddWithValue("@Uadd", AddressTextBox.Text);
+                        cmd.Parameters.AddWithValue("@Upass", PasswordTextBox.Text);
+                        cmd.Parameters.AddWithValue("@Uid", key);
 
-                    string query = " INSERT INTO  userTbl VALUES ('" + NameTextBox.Text + "', '" + TpNumberTextBox1.Text + "', '" + AddressTextBox.Text + "', '" + PasswordTextBox.Text + "')";
-                    SqlCommand cmd = new SqlCommand(query, sqlconnection());
-                    cmd.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
+                    }
 
                     sqlconnection().Close();
 
